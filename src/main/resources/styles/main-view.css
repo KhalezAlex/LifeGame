@@ -1,0 +1,9 @@
+.mainBox {
+    -fx-min-height: 880px;
+    -fx-max-height: 880px;
+    -fx-min-width: 1460px;
+    -fx-max-width: 1460px;
+    -fx-alignment: center;
+    -fx-background-color: royalBlue;
+    -fx-spacing: 20px;
+}
