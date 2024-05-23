@@ -12,6 +12,7 @@ import java.util.Objects;
 
 
 public class LifeGame extends Application {
+    private final String SETUP_CONFIG = "setup.config";
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -20,6 +21,7 @@ public class LifeGame extends Application {
     }
 
     private void stageInit(Stage stage) throws IOException {
+        System.setProperty("setupConfig", SETUP_CONFIG);
         FXMLLoader fxmlLoader = new FXMLLoader(LifeGame.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LIFE-GAME");
@@ -34,7 +36,7 @@ public class LifeGame extends Application {
         stage.setResizable(false);
 
         MainViewController controller = fxmlLoader.getController();
-        Game game = Game.fromConfig("setup.config");
+        Game game = Game.fromConfig(SETUP_CONFIG);
         controller.setGame(game);
     }
 

@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -18,7 +17,6 @@ import javafx.util.Duration;
 import lombok.Data;
 import org.klozevitz.lifegame.util.Game;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -28,7 +26,6 @@ import java.util.ResourceBundle;
 @Data
 public class MainViewController implements Initializable {
     private final int CANVAS_SIZE = 800;
-    private final String SOURCE = "setup.config";
     @FXML
     public TextField dimensionTextField;
     @FXML
@@ -64,12 +61,13 @@ public class MainViewController implements Initializable {
     }
 
     public void onStartButtonClickHandler() {
+        String configFile = System.getProperty("setupConfig");
         try {
-            Files.writeString(Path.of("setup.config"), "");
+            Files.writeString(Path.of(configFile), "");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        game.serialize("setup.config");
+        game.serialize(configFile);
         start();
     }
 

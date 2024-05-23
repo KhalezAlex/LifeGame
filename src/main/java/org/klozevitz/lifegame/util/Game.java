@@ -6,7 +6,6 @@ import java.io.*;
 
 @Data
 public class Game implements Serializable {
-    private final String SOURCE = "setup.config";
     int dimension;                      // размерность поля
     private boolean[][] field;          // поле
     private boolean[][] beforeRound;    // буферный массив для перехода к следующему поколению
