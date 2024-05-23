@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.klozevitz.lifegame.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.canvas.Canvas?>
+<HBox styleClass="mainBox" xmlns:fx="http://javafx.com/javafx/1"
+      fx:controller="org.klozevitz.lifegame.controllers.MainViewController">
+    <VBox styleClass="imageBox">
+        <Canvas fx:id="canvasField"/>
+    </VBox>
+    <VBox styleClass="settingsBox">
+<!--        <VBox styleClass="sizeBox">-->
+<!--            <Text styleClass="textH2">Выбор размера</Text>-->
+            <HBox styleClass="rowColumnBox">
+                <Text styleClass="textH2">РАЗМЕР ПОЛЯ</Text>
+                <TextField styleClass="inputs" fx:id="dimensionTextField">10</TextField>
+            </HBox>
+<!--        </VBox>-->
+        <Button styleClass="inputs" fx:id="startButton" onAction="#onStartButtonClickHandler">Начать</Button>
+        <Button styleClass="inputs" fx:id="stopButton" onAction="#onStopButtonClickHandler">Закончить</Button>
+    </VBox>
+</HBox>
