@@ -4,7 +4,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -92,9 +91,7 @@ public class MainViewController implements Initializable {
         canvasField.setWidth(canvasSize);
         gc = canvasField.getGraphicsContext2D();
         drawGeneration();
-        canvasField.setOnMouseClicked((e) -> {
-            canvasMouseClickListener(e, dimension);
-        });
+        canvasField.setOnMouseClicked((e) -> canvasMouseClickListener(e, dimension));
     }
 
     public void drawGeneration() {
@@ -156,7 +153,7 @@ public class MainViewController implements Initializable {
         }
     };
 
-    public void onStopButtonClickHandler(ActionEvent actionEvent) {
+    public void onStopButtonClickHandler() {
         System.exit(130);
     }
 }
